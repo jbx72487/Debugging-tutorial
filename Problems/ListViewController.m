@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+    NSLog(@"viewDidLoad is called");
 }
 
 - (void)viewDidUnload
@@ -46,6 +47,7 @@
 	static NSString *CellIdentifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
+    // NSLog(@"The cell is %@", cell);
 	cell.textLabel.text = [list objectAtIndex:indexPath.row];
 
 	return cell;
