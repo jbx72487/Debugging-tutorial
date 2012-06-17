@@ -12,7 +12,7 @@
 	if (self == [super initWithCoder:aDecoder])
 	{
         // learning from debugging - the array was never allocated, so it was always nil so addObject never did anything to it
-        list = [NSMutableArray arrayWithCapacity:10];
+        [list = [NSMutableArray arrayWithCapacity:10] retain];
             
 		[list addObject:@"One"];
 		[list addObject:@"Two"];
@@ -21,6 +21,12 @@
 		[list addObject:@"Five"];
 	}
 	return self;
+}
+
+- (void)dealloc
+{
+	[list release];
+	[super dealloc];
 }
 
 - (void)viewDidLoad
@@ -43,7 +49,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 6;
+	return list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,8 +57,8 @@
 	static NSString *CellIdentifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    NSLog(@"array contents %@", list);
 	cell.textLabel.text = [list objectAtIndex:indexPath.row];
+    NSLog(@"array contents %@", list);
 
 	return cell;
 }
