@@ -36,7 +36,7 @@
                     <navigationItem key="navigationItem" id="SPg-Pk-FM7"/>
                     <connections>
                         <outlet property="button" destination="9bg-KP-2SM" id="j6m-JW-usG"/>
-                        <segue destination="DLU-Wv-Pet" kind="modal" identifier="" id="zMa-p0-spD"/>
+                        <segue destination="DLU-Wv-Pet" kind="modal" identifier="ModalSegue" id="zMa-p0-spD"/>
                     </connections>
                 </viewController>
             </objects>
@@ -99,6 +99,15 @@
             <point key="canvasLocation" x="138" y="145"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonTapped:"/>
+                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
