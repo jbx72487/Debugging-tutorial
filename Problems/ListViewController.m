@@ -67,6 +67,7 @@
 {
 	if (editingStyle == UITableViewCellEditingStyleDelete)
 	{
+        [list removeObjectAtIndex: indexPath.row];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}   
 }
