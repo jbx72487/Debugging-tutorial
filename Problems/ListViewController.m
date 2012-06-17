@@ -6,10 +6,14 @@
 	NSMutableArray *list;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
+// originally had this as initWithStyle. we should use initWithCoder instead because
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-	if (self == [super initWithStyle:style])
+	if (self == [super initWithCoder:aDecoder])
 	{
+        // learning from debugging - the array was never allocated, so it was always nil so addObject never did anything to it
+        list = [NSMutableArray arrayWithCapacity:10];
+            
 		[list addObject:@"One"];
 		[list addObject:@"Two"];
 		[list addObject:@"Three"];
@@ -47,7 +51,7 @@
 	static NSString *CellIdentifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    // NSLog(@"The cell is %@", cell);
+    NSLog(@"array contents %@", list);
 	cell.textLabel.text = [list objectAtIndex:indexPath.row];
 
 	return cell;
