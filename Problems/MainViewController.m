@@ -23,7 +23,7 @@
 
 - (void)buttonTapped:(id)sender
 {
-	NSLog("You tapped on: %s", sender);
+	NSLog(@"You tapped on: %@", sender);
 
 	[self performSegueWithIdentifier:@"ModalSegue" sender:sender];
 }
