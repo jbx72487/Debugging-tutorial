@@ -21,7 +21,7 @@
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (void)butonTapped:(id)sender
+- (void)buttonTapped:(id)sender
 {
 	NSLog("You tapped on: %s", sender);
 
